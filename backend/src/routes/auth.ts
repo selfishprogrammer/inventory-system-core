@@ -8,9 +8,11 @@ import { requireMinRole } from '../middleware/roleCheck';
 const router = Router();
 
 const signToken = (userId: string): string =>
-  jwt.sign({ id: userId }, process.env.JWT_SECRET as string, {
-    expiresIn: process.env.JWT_EXPIRE ?? '7d',
-  });
+  jwt.sign(
+    { id: userId },
+    process.env.JWT_SECRET as string,
+    { expiresIn: process.env.JWT_EXPIRE ?? '7d' } as unknown as jwt.SignOptions
+  );
 
 // POST /api/auth/register — create new tenant + owner
 router.post('/register', async (req: Request, res: Response): Promise<void> => {
