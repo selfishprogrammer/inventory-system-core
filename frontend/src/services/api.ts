@@ -5,7 +5,7 @@ import {
 } from '../types';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL ?? '/api',
+  baseURL:"https://inventory-system-core.vercel.app/api",
   timeout: 15000,
 });
 

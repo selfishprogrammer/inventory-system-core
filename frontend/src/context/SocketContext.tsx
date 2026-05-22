@@ -19,7 +19,7 @@ export function SocketProvider({ children }: { children: ReactNode }) {
     if (!user || !tenant) return;
 
     const socket = io(
-      (import.meta.env.VITE_SOCKET_URL as string | undefined) ?? window.location.origin,
+      "https://inventory-system-core.vercel.app",
       { withCredentials: true }
     );
 
